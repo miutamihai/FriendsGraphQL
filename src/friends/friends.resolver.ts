@@ -22,4 +22,9 @@ export class FriendsResolver {
     async createFriend(@Args('friend', { type: () => CreateFriend }) friend: CreateFriend) {
         return this.friendsService.create(friend)
     }
+    
+    @Mutation(() => Friend, {name: 'deleteFriend'})
+    async deleteFriend(@Args('id', { type: () => Int }) id: number){
+        return this.friendsService.delete(id)
+    }
 }
