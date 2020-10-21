@@ -1,6 +1,6 @@
 datasource db {
   provider = "sqlite"
-  url="file:./friends"
+  url = "***"
 }
 
 generator client {
@@ -18,5 +18,5 @@ model Friend {
 model Job {
   id Int @id @default(autoincrement())
   name String
-  monthlyPay Int?
+  monthlyPay Int
 }

@@ -40,6 +40,18 @@ $ npm i -g @prisma/cli
 $ prisma generate --schema src/prisma/schema.prisma
 ```
 
+## Migrations
+```bash
+# create
+$ prisma migrate save --experimental --schema src/prisma/schema.prisma
+
+# apply
+$ prisma migrate up --experimental --schema src/prisma/schema.prisma
+
+# regenerate client after migration
+$ prisma generate --schema src/prisma/schema.prisma
+```
+
 ## Running the app
 
 ```bash

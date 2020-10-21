@@ -1,0 +1,4 @@
+# Prisma Migrate lockfile v1
+
+20201021133214-create-job
+20201021135327-alter_job_make-salary-nullable
