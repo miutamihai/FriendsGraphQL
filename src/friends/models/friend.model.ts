@@ -14,9 +14,6 @@ export class Friend {
 
 @InputType()
 export class CreateFriend {
-    @Field(() => Int, {nullable: false})
-    id: number
-    
     @Field(() => String, {nullable: false})
     firstName: string
     
