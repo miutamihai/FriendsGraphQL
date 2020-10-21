@@ -10,34 +10,9 @@ export class FriendsService {
       this.prisma = new PrismaClient({ log: ['query', 'info', 'warn'] })
     }
 
-    async findOneById(id: number): Promise<Friend> {
-        return await this.prisma.friend.findOne({
-          select: {
-            id: true,
-            firstName: true,
-            lastName: true
-          },
-          where: {
-            id: id
-          }
-        })
-    }
-
-    async findAll(): Promise<Friend[]> {
-        return await this.prisma.friend.findMany() as Friend[]
-    }
+    findOneById = async (id: number): Promise<Friend> => await this.prisma.friend.findOne({ where: { id } })
     
-    async create(friend: CreateFriend): Promise<Friend> {
-        return await this.prisma.friend.create({
-            data: {
-                firstName: friend.firstName,
-                lastName: friend.lastName
-            },
-            select: {
-                id: true,
-                firstName: true,
-                lastName: true
-            }
-        })
-    }
+    findAll = async () : Promise<Friend[]> => await this.prisma.friend.findMany() as Friend[]
+    
+    create = async ({ ...data }: CreateFriend): Promise<Friend> => await this.prisma.friend.create({ data })
 }
