@@ -1,4 +1,4 @@
-import {Field, Int, ObjectType, InputType} from "@nestjs/graphql";
+import {Field, Int, ObjectType, InputType, Directive} from "@nestjs/graphql";
 
 @ObjectType()
 export class Friend {
@@ -8,6 +8,7 @@ export class Friend {
     @Field({nullable: false})
     firstName?: string
 
+    @Directive('@upper')
     @Field({nullable: false})
     lastName?: string
 }
