@@ -9,22 +9,30 @@ export class FriendsResolver {
     ) {}
 
     @Query(() => Friend, { name: 'friend' })
-    async getFriend(@Args('id', { type: () => Int }) id: number) {
+    async get(@Args('id', { type: () => Int }) id: number) {
         return this.friendsService.findOneById(id)
     }
 
     @Query(() => [Friend], {name: 'friends'})
-    async getFriends(){
+    async getMany(){
         return this.friendsService.findAll();
     }
     
     @Mutation(() => Friend, {name: 'createFriend'})
-    async createFriend(@Args('friend', { type: () => CreateFriend }) friend: CreateFriend) {
+    async create(@Args('friend', { type: () => CreateFriend }) friend: CreateFriend) {
         return this.friendsService.create(friend)
     }
     
     @Mutation(() => Friend, {name: 'deleteFriend'})
-    async deleteFriend(@Args('id', { type: () => Int }) id: number){
+    async delete(@Args('id', { type: () => Int }) id: number){
         return this.friendsService.delete(id)
+    }
+    
+    @Mutation(() => Friend, {name: 'changeFriendJob'})
+    async changeFriendJob(
+        @Args('friendId', {type: () => Int}) friendId: number,
+        @Args('jobId', {type: () => Int}) jobId: number
+    ) {
+      return this.friendsService.changeFriendJob(friendId, jobId)  
     }
 }

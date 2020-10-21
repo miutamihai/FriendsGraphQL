@@ -3,6 +3,7 @@ import {GraphQLModule} from "@nestjs/graphql";
 import {FriendsModule} from "./friends/friends.module";
 import {TimeModule} from "./time/time.module";
 import { UpperCaseDirective } from "./friends/friends.directives";
+import { JobModule } from './job/job.module';
 
 @Module({
     imports: [
@@ -14,7 +15,8 @@ import { UpperCaseDirective } from "./friends/friends.directives";
             schemaDirectives: {
                 upper: UpperCaseDirective
             }
-        })
+        }),
+        JobModule
     ],
 })
 export class AppModule {
